@@ -3,12 +3,13 @@ import { Input } from "@/components/ui/input";
 import Select from "@/components/ui/select";
 import { jobTypes } from "@/lib/job-types";
 import { Button } from "@/components/ui/button";
-import { jobFilterSchema } from "@/lib/validation";
+import { JobFilterValues, jobFilterSchema } from "@/lib/validation";
 import { redirect } from "next/navigation";
+import FormSubmitButton from "./form-submit-button";
 
 async function folterJob(formData: FormData) {
   "use server";
-
+  
   const values = Object.fromEntries(formData.entries());
 
   const {q, type, location, remote} = jobFilterSchema.parse(values);
@@ -16,14 +17,18 @@ async function folterJob(formData: FormData) {
   const searchParams = new URLSearchParams({
     ...(q && { q: q.trim() }),
     ...(type && { type }),
-    ...(location && { location }),
-    ...(remote  && { remote: "true" })
+    ...(location && location !== "All Location" && { location }),
+    ...(remote && { remote: remote.toString() }),
   })
 
   redirect(`/?${searchParams.toString()}`)
 }
 
-export default async function JobFilterSidebar() {
+interface JobFilterSidebarProps {
+  defaultValues: JobFilterValues;
+}
+
+export default async function JobFilterSidebar({defaultValues}: JobFilterSidebarProps) {
   const distinctLocation = (await prisma?.job.findMany({
     where: {
       approved: true
@@ -49,15 +54,17 @@ export default async function JobFilterSidebar() {
               id="q"
               name="q" 
               placeholder="Title, company, etc."
+              defaultValue={defaultValues.q}
             />
+          
           </div>
           <div className="flex flex-col gap-2">
             <Label htmlFor="type">
               Type
             </Label>
-            <Select id="type" name="type" defaultValue="">
+            <Select id="type" name="type" defaultValue={defaultValues.type || ""}>
               <option value="">
-                All Location
+                All type
               </option>
               {jobTypes.map(type => (
                 <option key={type} value={type}>
@@ -70,7 +77,7 @@ export default async function JobFilterSidebar() {
             <Label htmlFor="location">
               Location
             </Label>
-            <Select id="location" name="location" defaultValue="">
+            <Select id="location" name="location" defaultValue={defaultValues.location || ""}>
               <option>
                 All Location
               </option>
@@ -86,14 +93,15 @@ export default async function JobFilterSidebar() {
               type="checkbox" 
               id="remote"
               className="scale-125 accent-slate-900"
+              defaultChecked={defaultValues.remote}
             />
             <Label htmlFor="remote">
               Remote jobs
             </Label>
           </div>
-          <Button type="submit" className="w-full">
+          <FormSubmitButton className="w-full">
             Filter jobs
-          </Button>
+          </FormSubmitButton>
         </div>
       </form>
     </aside>
