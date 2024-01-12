@@ -1,22 +1,22 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
-import { formatDistanceToNowStrict } from "date-fns";
 import { User } from "@clerk/nextjs/server";
 import { UserResource } from "@clerk/types";
+import { clsx, type ClassValue } from "clsx";
+import { formatDistanceToNowStrict } from "date-fns";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export function formatMoney(amount: number) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-  }).format(amount)
+  }).format(amount);
 }
 
-export function relativeDate(form: Date) {
-  return formatDistanceToNowStrict(form, { addSuffix: true });
+export function relativeDate(from: Date) {
+  return formatDistanceToNowStrict(from, { addSuffix: true });
 }
 
 export function toSlug(str: string) {

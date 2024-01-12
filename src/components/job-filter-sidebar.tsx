@@ -2,7 +2,7 @@ import { jobTypes } from "@/lib/job-types";
 import prisma from "@/lib/prisma";
 import { JobFilterValues, jobFilterSchema } from "@/lib/validation";
 import { redirect } from "next/navigation";
-import FormSubmitButton from "@/components/form-submit-button";
+import FormSubmitButton from "./form-submit-button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import Select from "./ui/select";
