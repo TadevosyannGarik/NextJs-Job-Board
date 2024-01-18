@@ -42,7 +42,7 @@ export default async function JobFilterSidebar({
     )) as string[];
 
   return (
-    <aside className="sticky top-0 h-fit rounded-lg border bg-background p-4 md:w-[260px]">
+    <aside className="sticky top-0 h-fit rounded-lg border bg-background p-4 md:w-[300px] зд-">
       <form action={filterJobs} key={JSON.stringify(defaultValues)}>
         <div className="space-y-4">
           <div className="flex flex-col gap-2">
@@ -92,9 +92,9 @@ export default async function JobFilterSidebar({
               className="scale-125 accent-black"
               defaultChecked={defaultValues.remote}
             />
-            <Label htmlFor="remote">Remote jobs</Label>
+            <Label htmlFor="remote">Free games</Label>
           </div>
-          <FormSubmitButton className="w-full">Filter jobs</FormSubmitButton>
+          <FormSubmitButton className="w-full">Filter games</FormSubmitButton>
         </div>
       </form>
     </aside>

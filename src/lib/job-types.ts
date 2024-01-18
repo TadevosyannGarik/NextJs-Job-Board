@@ -1,14 +1,16 @@
 export const jobTypes = [
-    "Full-time",
-    "Part-time",
-    "Contract",
-    "Temporary",
-    "Internship",
-    "volunteer",
+    "Action",
+    "RPG",
+    "Strategy",
+    "Simulation",
+    "Horror",
+    "MMO",
+    "Indie Games",
+    "Racing",
+    "Fighting"
 ];
 
 export const locationTypes = [
-    "Remote",
-    "On-site",
-    "Hybrid",
+    "Free",
+    "Paid",
 ];

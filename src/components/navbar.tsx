@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CircleDollarSign } from 'lucide-react';
+import { CircleDollarSign, Swords } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
@@ -9,15 +9,15 @@ export default function Navbar() {
         <Link
           href="/" className="flex items-center gap-3 pl-10"
         >
-          <CircleDollarSign size={30} />
+          <Swords size={30} />
           <span className="text-xl font-bold tracking-tight ">
-            Flow Jobs
+            Flow Games
           </span>
         </Link>
         <div className="pr-10">
         <Button asChild>
           <Link href="/jobs/new">
-            Post a job
+            Post a game
           </Link>
         </Button>
         </div>

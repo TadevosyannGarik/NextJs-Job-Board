@@ -42,7 +42,7 @@ export default async function JobResults({
       searchFilter,
       type ? { type } : {},
       location ? { location } : {},
-      remote ? { locationType: "Remote" } : {},
+      remote ? { locationType: "Free" } : {},
       { approved: true },
     ],
   };
@@ -67,7 +67,7 @@ export default async function JobResults({
       ))}
       {jobs.length === 0 && (
         <p className="m-auto text-center">
-          No jobs found. Try adjusting your search filters.
+          No games found. Try adjusting your search filters.
         </p>
       )}
       {jobs.length > 0 && (

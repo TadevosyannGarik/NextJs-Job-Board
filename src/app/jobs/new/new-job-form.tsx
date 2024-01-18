@@ -57,16 +57,16 @@ export default function NewJobForm() {
   return (
     <main className="m-auto my-10 max-w-3xl space-y-10">
       <div className="space-y-5 text-center">
-        <H1>Find your perfect developer</H1>
+        <H1>Find your perfect game</H1>
         <p className="text-muted-foreground">
-          Get your job posting seen by thousands of job seekers.
+          Get your game posting seen by thousands of game seekers.
         </p>
       </div>
       <div className="space-y-6 rounded-lg border p-4">
         <div>
-          <h2 className="font-semibold">Job details</h2>
+          <h2 className="font-semibold">Game details</h2>
           <p className="text-muted-foreground">
-            Provide a job description and details
+            Provide a game description and details
           </p>
         </div>
         <Form {...form}>
@@ -80,7 +80,7 @@ export default function NewJobForm() {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Job title</FormLabel>
+                  <FormLabel>Game title</FormLabel>
                   <FormControl>
                     <Input placeholder="e.g. Frontend Developer" {...field} />
                   </FormControl>
@@ -93,7 +93,7 @@ export default function NewJobForm() {
               name="type"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Job type</FormLabel>
+                  <FormLabel>Game type</FormLabel>
                   <FormControl>
                     <Select {...field} defaultValue="">
                       <option value="" hidden>
@@ -149,7 +149,7 @@ export default function NewJobForm() {
               name="locationType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Location</FormLabel>
+                  <FormLabel>Free or Paid</FormLabel>
                   <FormControl>
                     <Select
                       {...field}

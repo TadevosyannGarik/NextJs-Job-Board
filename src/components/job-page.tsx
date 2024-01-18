@@ -1,6 +1,6 @@
 import { formatMoney } from "@/lib/utils";
 import { Job } from "@prisma/client";
-import { Banknote, Briefcase, Globe2, MapPin } from "lucide-react";
+import { Banknote, AlignLeft, Globe2, MapPin, Coins } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "./markdown";
@@ -29,8 +29,8 @@ export default function JobPage({
           <Image
             src={companyLogoUrl}
             alt="Company logo"
-            width={100}
-            height={100}
+            width={400}
+            height={400}
             className="rounded-xl"
           />
         )}
@@ -52,11 +52,11 @@ export default function JobPage({
           </div>
           <div className="text-muted-foreground">
             <p className="flex items-center gap-1.5">
-              <Briefcase size={16} className="shrink-0" />
+              <AlignLeft size={16} className="shrink-0" />
               {type}
             </p>
             <p className="flex items-center gap-1.5">
-              <MapPin size={16} className="shrink-0" />
+              <Coins size={16} className="shrink-0" />
               {locationType}
             </p>
             <p className="flex items-center gap-1.5">

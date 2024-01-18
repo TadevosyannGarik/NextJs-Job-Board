@@ -34,7 +34,7 @@ const locationSchema = z
   })
   .refine(
     (data) =>
-      !data.locationType || data.locationType === "Remote" || data.location,
+      !data.locationType || data.locationType === "Free" || data.location,
     {
       message: "Location is required for on-site jobs",
       path: ["location"],
