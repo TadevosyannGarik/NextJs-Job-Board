@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-w-[350px]`}>
-        <Navbar />
+        <ThemeProvider attribute="class">
         {children}
+        </ThemeProvider>
         <Footer />
       </body>
     </html>

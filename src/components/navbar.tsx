@@ -1,11 +1,13 @@
-import Link from "next/link";
-import { CircleDollarSign, Swords } from 'lucide-react';
+"use client";
 import { Button } from "@/components/ui/button";
+import { Swords } from 'lucide-react';
+import Link from "next/link";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 export default function Navbar() {
   return (
     <header className="">
-      <nav className="w-full m-auto py-5 flex items-center justify-between border">
+      <nav className="w-full m-auto py-5 flex items-center justify-between border-b">
         <Link
           href="/" className="flex items-center gap-3 pl-10"
         >
@@ -15,6 +17,7 @@ export default function Navbar() {
           </span>
         </Link>
         <div className="pr-10">
+        <ThemeToggleButton />
         <Button asChild>
           <Link href="/jobs/new">
             Post a game
