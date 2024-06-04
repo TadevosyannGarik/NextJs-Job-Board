@@ -7,7 +7,11 @@ export const jobTypes = [
     "MMO",
     "Indie Games",
     "Racing",
-    "Fighting"
+    "Fighting",
+    "PC",
+    "Phone",
+    "Imac",
+    "All Platforms"
 ];
 
 export const locationTypes = [

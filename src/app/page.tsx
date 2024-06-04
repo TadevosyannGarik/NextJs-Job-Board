@@ -23,7 +23,7 @@ function getTitle({ q, type, location, remote }: JobFilterValues) {
       ? `${type} games`
       : remote
         ? "Free games"
-        : "All games";
+        : "All games and Engine";
 
   const titleSuffix = location ? ` in ${location}` : "";
 
@@ -59,7 +59,7 @@ export default async function Home({
       <main className="m-auto my-10 space-y-10 px-3">
         <div className="space-y-5 text-center">
           <H1>{getTitle(filterValues)}</H1>
-          <p className="text-muted-foreground">Find your dream game.</p>
+          <p className="text-muted-foreground">Find your dream game or engine</p>
         </div>
         <section className="flex flex-col gap-4 md:flex-row">
           <JobFilterSidebar defaultValues={filterValues} />
